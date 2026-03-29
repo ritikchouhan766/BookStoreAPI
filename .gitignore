@@ -1,22 +1,48 @@
-## .NET
+# Build folders
 bin/
 obj/
+Debug/
+Release/
+x64/
+x86/
+
+# Logs
+*.log
+logs/
+Log/
+
+# User-specific files
 *.user
 *.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio / IDE
 .vs/
+.vscode/
+.idea/
+*.swp
+
+# Test results
 TestResults/
+[Tt]est[Rr]esult*/
+
+# NuGet
 *.nupkg
 *.snupkg
+packages/
 
-## Secrets — never commit these
+# Coverage reports
+CodeCoverage/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Secrets (never commit)
 appsettings.Production.json
 *secrets*
 
-## IDE
-.idea/
-.vscode/
-*.swp
-
-## OS
-.DS_Store
-Thumbs.db
+# Temporary
+~$*
+*~

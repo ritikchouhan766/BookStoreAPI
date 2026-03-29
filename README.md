@@ -28,18 +28,18 @@ BookStoreAPI/
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Framework | .NET 8 / ASP.NET Core Web API |
-| Architecture | Clean Architecture + CQRS (MediatR) |
-| ORM | Entity Framework Core 8 |
-| Database | SQL Server 2022 |
-| Auth | JWT Bearer Tokens + BCrypt password hashing |
-| Validation | FluentValidation (pipeline behaviour — auto-validates all commands) |
-| Testing | xUnit + Moq + FluentAssertions + EF In-Memory |
-| Containerisation | Docker (multi-stage build) + Docker Compose |
-| CI/CD | GitHub Actions (build → test → push to GHCR) |
-| API Docs | Swagger / OpenAPI with JWT support |
+| Layer            | Technology                                                          |
+| ---------------- | ------------------------------------------------------------------- |
+| Framework        | .NET 8 / ASP.NET Core Web API                                       |
+| Architecture     | Clean Architecture + CQRS (MediatR)                                 |
+| ORM              | Entity Framework Core 8                                             |
+| Database         | SQL Server 2022                                                     |
+| Auth             | JWT Bearer Tokens + BCrypt password hashing                         |
+| Validation       | FluentValidation (pipeline behaviour — auto-validates all commands) |
+| Testing          | xUnit + Moq + FluentAssertions + EF In-Memory                       |
+| Containerisation | Docker (multi-stage build) + Docker Compose                         |
+| CI/CD            | GitHub Actions (build → test → push to GHCR)                        |
+| API Docs         | Swagger / OpenAPI with JWT support                                  |
 
 ---
 
@@ -78,27 +78,30 @@ dotnet run
 ## API Endpoints
 
 ### Auth
-| Method | Endpoint | Auth | Description |
-|---|---|---|---|
-| POST | `/api/auth/register` | None | Register new user |
-| POST | `/api/auth/login` | None | Login → returns JWT |
+
+| Method | Endpoint             | Auth | Description         |
+| ------ | -------------------- | ---- | ------------------- |
+| POST   | `/api/auth/register` | None | Register new user   |
+| POST   | `/api/auth/login`    | None | Login → returns JWT |
 
 ### Books
-| Method | Endpoint | Auth | Description |
-|---|---|---|---|
-| GET | `/api/books` | None | Get all books (paginated, genre filter) |
-| GET | `/api/books/{id}` | None | Get book by ID |
-| POST | `/api/books` | Bearer | Create book |
-| PUT | `/api/books/{id}` | Bearer | Update book |
-| DELETE | `/api/books/{id}` | Admin only | Delete book |
+
+| Method | Endpoint          | Auth       | Description                             |
+| ------ | ----------------- | ---------- | --------------------------------------- |
+| GET    | `/api/books`      | None       | Get all books (paginated, genre filter) |
+| GET    | `/api/books/{id}` | None       | Get book by ID                          |
+| POST   | `/api/books`      | Bearer     | Create book                             |
+| PUT    | `/api/books/{id}` | Bearer     | Update book                             |
+| DELETE | `/api/books/{id}` | Admin only | Delete book                             |
 
 ### Authors & Publishers
-| Method | Endpoint | Auth | Description |
-|---|---|---|---|
-| GET | `/api/authors` | None | Get all authors |
-| POST | `/api/authors` | Admin | Create author |
-| GET | `/api/publishers` | None | Get all publishers |
-| POST | `/api/publishers` | Admin | Create publisher |
+
+| Method | Endpoint          | Auth  | Description        |
+| ------ | ----------------- | ----- | ------------------ |
+| GET    | `/api/authors`    | None  | Get all authors    |
+| POST   | `/api/authors`    | Admin | Create author      |
+| GET    | `/api/publishers` | None  | Get all publishers |
+| POST   | `/api/publishers` | Admin | Create publisher   |
 
 ---
 
@@ -115,7 +118,9 @@ dotnet test --collect:"XPlat Code Coverage"
 **Test coverage:** 12 unit tests covering all CQRS handlers using EF Core In-Memory database — no SQL Server required for tests.
 
 ### Seeded Admin Account
+
 After running migrations, a default admin is seeded:
+
 - **Email:** `admin@bookstore.com`
 - **Password:** `Admin@123`
 
